@@ -16,6 +16,11 @@ app.use(cors({
 
 const ollama = new Ollama();
 
+// Örnek bir GET endpoint
+app.get('/api/ok', (req, res) => {
+    res.json({ status: 'OK' });
+});
+
 // Örnek bir POST endpoint
 app.post('/api/chat', async (req, res) => {
     try {
