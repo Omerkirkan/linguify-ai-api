@@ -14,7 +14,7 @@ app.use(cors({
     allowedHeaders: 'Content-Type, Authorization' // İzin verilen başlıklar
 }));
 
-const ollama = new Ollama();
+const ollama = new Ollama({ host: 'http://209.38.188.205:11434' })
 
 // Örnek bir GET endpoint
 app.get('/api/ok', (req, res) => {
@@ -29,6 +29,7 @@ app.post('/api/chat', async (req, res) => {
 
         const response = await ollama.chat({ model: 'llama3', messages: chatContent, stream: true })
         for await (const part of response) {
+            console.log(part.message.content);
             res.write(part.message.content);
         }
 
