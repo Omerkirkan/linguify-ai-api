@@ -14,7 +14,7 @@ app.use(cors({
     allowedHeaders: 'Content-Type, Authorization' // İzin verilen başlıklar
 }));
 
-const ollama = new Ollama({ host: 'http://209.38.188.205:11434' })
+const ollama = new Ollama({ host: 'http://localhost:11434' })
 
 // Örnek bir GET endpoint
 app.get('/api/ok', (req, res) => {
